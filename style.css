@@ -1,0 +1,207 @@
+/* Theme: Red & Grey — Simple, beginner-friendly CSS with comments */
+
+:root {
+  --accent: #c0392b;        /* main red (bright) */
+  --accent-light: #f6b1ad;  /* lighter red for transition */
+  --accent-dark: #a32b22;   /* darker red for hover */
+  --muted: #6e6e73;         /* neutral grey for text */
+  --bg-start: var(--accent); /* gradient start/end */
+  --bg-mid: var(--accent-light); /* gradient middle */
+  --card-bg: #ececec;       /* light grey cards per request */
+}
+
+/* Basic page settings */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* A simple, readable font */
+  line-height: 1.6;
+  margin: 0;
+  color: #333;
+  /* Background image: Computer.jpg with a light neutral overlay for legibility */
+  background-image: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url('img/Computer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+/* Center content and add comfortable width */
+.container {
+  max-width: 800px; /* a readable line length */
+  margin: 20px auto;
+  padding: 0 16px;
+  /* Add perspective so children with 3D transforms look more realistic */
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  perspective-origin: 50% 10%;
+}
+
+/* Header / hero area */
+.site-header {
+  text-align: center; /* center the photo and name */
+  padding: 40px 16px;
+  /* Background image with a neutral dark overlay (no red) for contrast */
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('img/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 3px solid var(--accent); /* red border around header */
+  border-radius: 6px; /* subtle rounding to match cards */
+  color: #fff; /* default text in header should be light for contrast */
+  min-height: 220px; /* make hero area taller */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header action buttons */
+.header-actions {
+  margin-top: 12px;
+}
+
+.site-header .btn {
+  margin: 0 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+}
+
+/* White / semi-transparent styles to stand out on hero */
+.site-header .btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+.site-header .btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.site-header .btn-primary {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.site-header .btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+/* Make the profile photo stand out on the hero image */
+.site-header .profile-photo {
+  width: 120px; /* small, consistent photo size */
+  height: 120px;
+  object-fit: cover; /* keep photo proportions */
+  border-radius: 50%; /* circular photo */
+  border: 3px solid #fff; /* white border for contrast */
+  display: inline-block;
+}
+
+h1#name {
+  margin: 12px 0 4px 0;
+  font-size: 1.6rem;
+  color: #fff; /* ensure the name is readable on the image */
+}
+
+.tagline {
+  margin: 0;
+  color: rgba(255,255,255,0.95);
+}
+
+/* Section headings and 3D card styles */
+section {
+  background: var(--card-bg); /* light grey cards */
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #d7d7d7; /* subtle grey border */
+  border-radius: 6px;
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+/* 3D card effect applied to specific sections */
+#about, #education, #skills {
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+  cursor: default;
+}
+
+/* Hover and keyboard focus states */
+#about:hover, #education:hover, #skills:hover,
+#about:focus, #education:focus, #skills:focus {
+  transform: translateY(-12px) rotateX(2deg);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18), 0 6px 12px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+/* Visible focus for keyboard users */
+#about:focus-visible, #education:focus-visible, #skills:focus-visible {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18), 0 0 0 6px rgba(192,32,32,0.08);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 12px 16px;
+  margin-top: 20px;
+  color: var(--muted);
+  background: var(--card-bg);
+  border-top: 1px solid #dcdcdc;
+  border-radius: 6px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* Simple list styling */
+ul {
+  padding-left: 20px;
+}
+
+/* Links and accents */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* Button styles (use .btn and .btn-primary) */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 12px 16px;
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* End of CSS - edit colors and fonts to personalize */
